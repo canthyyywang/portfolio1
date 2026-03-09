@@ -1,0 +1,36 @@
+---
+description: 技术栈与 Next.js App Router 编码规范，每次对话自动生效
+alwaysApply: true
+---
+
+# 技术栈与规范
+
+## 技术栈
+
+- **框架**: Next.js (App Router)
+- **样式**: Tailwind CSS
+- **部署**: Vercel
+
+## 必须遵守的规范
+
+- 所有代码必须符合 **Next.js App Router** 规范（`app/` 目录、`layout.tsx`、`page.tsx`、路由与元数据等）。
+- 路由跳转一律使用 **`next/link`** 的 `<Link href="...">`，不要用 `<a>` 或其它路由库做站内导航。
+- 图片一律使用 **`next/image`** 的 `<Image />`，不要用 `<img>`。
+
+### 示例
+
+```tsx
+// ✅ 正确：站内跳转
+import Link from "next/link";
+<Link href="/project-ai-platform">查看案例</Link>
+
+// ✅ 正确：图片
+import Image from "next/image";
+<Image src="/hero.jpg" alt="..." width={800} height={400} />
+
+// ❌ 避免：站内用 a 或其它路由
+<a href="/about">关于</a>
+
+// ❌ 避免：直接用 img
+<img src="/hero.jpg" alt="..." />
+```
